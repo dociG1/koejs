@@ -1,0 +1,182 @@
+[
+  {
+    "id": "usmle1-0001",
+    "exam": "USMLE Step 1",
+    "subject": "Pharmacologie",
+    "question": "Un patient sous warfarine pour une fibrillation atriale. Quel mécanisme explique l'effet anticoagulant de ce médicament ?",
+    "options": [
+      "Inhibition directe de la thrombine",
+      "Inhibition de la vitamine K époxyde réductase, diminuant la γ-carboxylation des facteurs II, VII, IX et X",
+      "Liaison à l'antithrombine III et potentialisation de son action",
+      "Inhibition irréversible de la cyclo-oxygénase plaquettaire",
+      "Blocage du récepteur P2Y12 plaquettaire"
+    ],
+    "answer": "B",
+    "explanation": "La warfarine inhibe la vitamine K époxyde réductase (VKORC1). Les facteurs II, VII, IX, X et les protéines C et S ne sont plus γ-carboxylés correctement. Le suivi se fait par l'INR (voie extrinsèque, facteur VII en premier).\n\nA = dabigatran. C = héparine. D = aspirine. E = clopidogrel."
+  },
+  {
+    "id": "usmle1-0002",
+    "exam": "USMLE Step 1",
+    "subject": "Microbiologie",
+    "question": "Un prélèvement de pus d'un abcès cutané montre des cocci Gram positif en amas, catalase positive et coagulase positive. Quel est l'agent le plus probable ?",
+    "options": [
+      "Streptococcus pyogenes",
+      "Staphylococcus epidermidis",
+      "Staphylococcus aureus",
+      "Enterococcus faecalis",
+      "Streptococcus pneumoniae"
+    ],
+    "answer": "C",
+    "explanation": "Cocci Gram+ en amas + catalase+ = Staphylococcus. Coagulase+ = S. aureus. S. epidermidis et S. saprophyticus sont coagulase négatifs. Les streptocoques et entérocoques sont catalase négatifs, en chaînettes ou en paires."
+  },
+  {
+    "id": "usmle1-0003",
+    "exam": "USMLE Step 1",
+    "subject": "Biochimie",
+    "question": "Un nourrisson présente une hypoglycémie à jeun, une hépatomégalie, une acidose lactique, une hyperuricémie et une hypertriglycéridémie. Quel déficit enzymatique est le plus probable ?",
+    "options": [
+      "Glucose-6-phosphatase",
+      "Amylo-1,6-glucosidase (enzyme débranchante)",
+      "Alpha-1,4-glucosidase lysosomale",
+      "Myophosphorylase",
+      "Enzyme branchante"
+    ],
+    "answer": "A",
+    "explanation": "Tableau classique de la maladie de Von Gierke (glycogénose type I) : déficit en glucose-6-phosphatase. Le glucose-6-phosphate s'accumule : glycolyse accrue (lactate), voie des pentoses (acide urique), synthèse lipidique (triglycérides), et la gluconéogénèse/glycogénolyse sont bloquées (hypoglycémie).\n\nB = Cori (type III). C = Pompe (type II). D = McArdle (type V). E = Andersen (type IV)."
+  },
+  {
+    "id": "usmle1-0004",
+    "exam": "USMLE Step 1",
+    "subject": "Hématologie",
+    "question": "Une biopsie de ganglion cervical révèle des cellules géantes binucléées à noyaux en « yeux de hibou », CD15+ et CD30+. Quel est le diagnostic ?",
+    "options": [
+      "Lymphome de Burkitt",
+      "Lymphome folliculaire",
+      "Lymphome de Hodgkin",
+      "Lymphome du manteau",
+      "Leucémie lymphoïde chronique"
+    ],
+    "answer": "C",
+    "explanation": "Les cellules de Reed-Sternberg (CD15+, CD30+) sont caractéristiques du lymphome de Hodgkin. Burkitt = « ciel étoilé », t(8;14). Folliculaire = t(14;18), BCL2. Manteau = t(11;14), cycline D1."
+  },
+  {
+    "id": "usmle2-0001",
+    "exam": "USMLE Step 2",
+    "subject": "Cardiologie",
+    "question": "Un homme de 62 ans arrive aux urgences avec une douleur thoracique. L'ECG montre un sus-décalage du segment ST en D2, D3 et aVF. Après nitroglycérine sublinguale, il devient hypotendu (80/50 mmHg). Les poumons sont clairs et les veines jugulaires sont distendues. Quelle est la prise en charge initiale la plus appropriée ?",
+    "options": [
+      "Furosémide IV",
+      "Perfusion de sérum physiologique",
+      "Nitroglycérine IV supplémentaire",
+      "Morphine IV",
+      "Métoprolol IV"
+    ],
+    "answer": "B",
+    "explanation": "Infarctus inférieur + hypotension après nitrés + poumons clairs + turgescence jugulaire = infarctus du ventricule droit (occlusion de la coronaire droite proximale). Le VD dépend de la précharge : on remplit (sérum physiologique) et on évite les nitrés, diurétiques et autres vasodilatateurs. La reperfusion urgente (angioplastie) reste le traitement de fond."
+  },
+  {
+    "id": "usmle2-0002",
+    "exam": "USMLE Step 2",
+    "subject": "Obstétrique",
+    "question": "Une femme enceinte de 28 semaines, groupe sanguin O négatif, avec dépistage d'anticorps négatif, vient en consultation prénatale. Quelle est la meilleure prise en charge ?",
+    "options": [
+      "Aucune intervention, répéter le dépistage à l'accouchement",
+      "Immunoglobulines anti-D à 28 semaines",
+      "Immunoglobulines anti-D uniquement après l'accouchement",
+      "Transfusion intra-utérine",
+      "Déclenchement du travail à 37 semaines"
+    ],
+    "answer": "B",
+    "explanation": "Chez une femme Rh négative non sensibilisée (Coombs indirect négatif), on administre des immunoglobulines anti-D à environ 28 semaines, puis dans les 72 heures après l'accouchement si le nouveau-né est Rh positif (et après tout événement sensibilisant : saignement, amniocentèse, traumatisme)."
+  },
+  {
+    "id": "usmle2-0003",
+    "exam": "USMLE Step 2",
+    "subject": "Pédiatrie",
+    "question": "Un nourrisson de 5 semaines présente des vomissements en jet non bilieux après chaque tétée et reste affamé. On palpe une masse en « olive » épigastrique. Le bilan montre une alcalose métabolique hypochlorémique et hypokaliémique. Quelle est la prise en charge initiale ?",
+    "options": [
+      "Pyloromyotomie en urgence",
+      "Correction de la déshydratation et des troubles électrolytiques",
+      "Transit baryté en urgence",
+      "Alimentation par sonde nasojéjunale",
+      "Inhibiteur de la pompe à protons"
+    ],
+    "answer": "B",
+    "explanation": "Sténose hypertrophique du pylore. Le traitement définitif est la pyloromyotomie de Ramstedt, mais elle n'est pas une urgence chirurgicale : on corrige d'abord le volume et les électrolytes (sérum glucosé/salé avec potassium) pour traiter l'alcalose. L'échographie confirme le diagnostic."
+  },
+  {
+    "id": "usmle2-0004",
+    "exam": "USMLE Step 2",
+    "subject": "Maladies infectieuses",
+    "question": "Un homme de 60 ans présente fièvre, céphalées et raideur de la nuque. La ponction lombaire montre une pléiocytose à polynucléaires, une protéinorachie élevée et une hypoglycorachie. Quel schéma empirique est le plus approprié ?",
+    "options": [
+      "Ceftriaxone seule",
+      "Ceftriaxone + vancomycine + ampicilline, avec dexaméthasone",
+      "Aciclovir seul",
+      "Pénicilline G seule",
+      "Ciprofloxacine + métronidazole"
+    ],
+    "answer": "B",
+    "explanation": "Méningite bactérienne chez un adulte de plus de 50 ans : couvrir S. pneumoniae (ceftriaxone + vancomycine), N. meningitidis, et Listeria monocytogenes (ampicilline). La dexaméthasone est débutée avant ou avec la première dose d'antibiotique pour réduire les séquelles, surtout en cas de pneumocoque. Les antibiotiques ne doivent pas être retardés."
+  },
+  {
+    "id": "res-0001",
+    "exam": "Résidanat",
+    "subject": "Urgences",
+    "question": "Quel est le traitement de première intention d'un choc anaphylactique chez l'adulte ?",
+    "options": [
+      "Corticoïdes intraveineux",
+      "Antihistaminique oral",
+      "Adrénaline par voie intramusculaire (face antérolatérale de la cuisse)",
+      "Salbutamol en nébulisation",
+      "Remplissage seul par cristalloïdes"
+    ],
+    "answer": "C",
+    "explanation": "L'adrénaline IM est le traitement de première intention, à injecter sans délai (environ 0,3 à 0,5 mg chez l'adulte, à répéter si besoin). Les corticoïdes et antihistaminiques sont des traitements adjuvants, jamais en premier. Le remplissage et l'oxygène complètent la prise en charge."
+  },
+  {
+    "id": "res-0002",
+    "exam": "Résidanat",
+    "subject": "Maladies infectieuses",
+    "question": "Quel est le traitement recommandé en première intention du paludisme grave à Plasmodium falciparum chez l'adulte ?",
+    "options": [
+      "Chloroquine orale",
+      "Artésunate par voie intraveineuse",
+      "Primaquine seule",
+      "Doxycycline seule",
+      "Paracétamol et hydratation"
+    ],
+    "answer": "B",
+    "explanation": "L'OMS recommande l'artésunate IV en première intention dans le paludisme grave, avec relais par une combinaison thérapeutique à base d'artémisinine (ACT) par voie orale une fois le patient capable d'avaler. La quinine IV est une alternative si l'artésunate n'est pas disponible."
+  },
+  {
+    "id": "res-0003",
+    "exam": "Résidanat",
+    "subject": "Gynécologie-Obstétrique",
+    "question": "Une femme enceinte de 34 semaines présente une pression artérielle à 170/115 mmHg, une protéinurie et des céphalées intenses avec scotomes. Quel traitement permet de prévenir la survenue de convulsions ?",
+    "options": [
+      "Diazépam",
+      "Phénytoïne",
+      "Sulfate de magnésium",
+      "Nifédipine seule",
+      "Furosémide"
+    ],
+    "answer": "C",
+    "explanation": "Pré-éclampsie sévère avec signes neurologiques : le sulfate de magnésium est le traitement de référence pour la prévention (et le traitement) des crises d'éclampsie. Il s'ajoute au traitement antihypertenseur (labétalol, nicardipine, nifédipine) et à la décision d'extraction fœtale selon le terme et la gravité. Surveiller réflexes ostéotendineux, fréquence respiratoire et diurèse."
+  },
+  {
+    "id": "res-0004",
+    "exam": "Résidanat",
+    "subject": "Pneumologie",
+    "question": "Quel est le schéma standard de traitement de la tuberculose pulmonaire à bacilles sensibles chez l'adulte ?",
+    "options": [
+      "2 mois de RHZE puis 4 mois de RH",
+      "6 mois d'isoniazide seule",
+      "1 mois de RHZE puis 2 mois de RH",
+      "2 mois de RH puis 4 mois de HZ",
+      "12 mois de rifampicine seule"
+    ],
+    "answer": "A",
+    "explanation": "Phase intensive de 2 mois avec rifampicine (R), isoniazide (H), pyrazinamide (Z) et éthambutol (E), puis phase de continuation de 4 mois avec rifampicine et isoniazide (2RHZE/4RH). Ajouter la vitamine B6 avec l'isoniazide et surveiller la fonction hépatique."
+  }
+]

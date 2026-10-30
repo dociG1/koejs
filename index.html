@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>STHETO – Entraînement USMLE &amp; Résidanat</title>
+<meta name="description" content="STHETO : banque de questions pour USMLE Step 1, Step 2 et concours de résidanat. Entraînement, examens blancs, scores et explications.">
+<style>
+:root{
+  --bg:#f3f7fd; --ink:#0f1f3d; --muted:#5a6b8c; --card:#fff; --line:#dbe5f4;
+  --b1:#0b3d91; --b2:#1d6bf3; --b3:#4f9bff; --soft:#e8f0fe;
+  --ok:#12805c; --okbg:#e3f6ee; --ko:#c0392b; --kobg:#fdeceb; --shadow:0 6px 24px rgba(15,50,120,.08);
+}
+@media (prefers-color-scheme: dark){
+  :root{ --bg:#08111f; --ink:#e8eefb; --muted:#9bb0d3; --card:#0f1c33; --line:#1c3156; --soft:#12264a;
+    --b1:#4f9bff; --b2:#4f9bff; --b3:#8bbcff; --okbg:#0f2f25; --kobg:#35161a; --shadow:none; }
+  .btn{color:#06101f}
+  .btn.light{color:#0b3d91}
+  .hero{background:linear-gradient(135deg,#0a2a63,#1245a8)}
+}
+*{box-sizing:border-box}
+body{margin:0;font-family:system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;background:var(--bg);color:var(--ink);line-height:1.55}
+.wrap{max-width:900px;margin:0 auto;padding:0 18px}
+header{position:sticky;top:0;z-index:20;background:var(--card);border-bottom:1px solid var(--line)}
+nav{display:flex;align-items:center;justify-content:space-between;height:58px}
+.logo{font-weight:800;letter-spacing:.12em;font-size:1.25rem;color:var(--b2);cursor:pointer;display:flex;align-items:center;gap:8px}
+.logo i{display:inline-block;width:26px;height:26px;border-radius:8px;background:linear-gradient(135deg,var(--b1),var(--b3))}
+.nav a{margin-left:16px;color:var(--muted);cursor:pointer;font-size:.93rem;font-weight:500}
+.nav a:hover{color:var(--b2)}
+.hero{background:linear-gradient(135deg,var(--b1),var(--b2));color:#fff;border-radius:20px;padding:42px 28px;margin:22px 0;box-shadow:var(--shadow)}
+.hero h1{margin:0 0 8px;font-size:clamp(1.7rem,5vw,2.5rem);line-height:1.15}
+.hero p{margin:0 0 20px;opacity:.92;max-width:560px}
+.btn{display:inline-block;border:0;cursor:pointer;background:var(--b2);color:#fff;padding:11px 22px;border-radius:12px;font-weight:600;font-size:.96rem;font-family:inherit}
+.btn:hover{filter:brightness(1.08)}
+.btn.light{background:#fff;color:var(--b1)}
+.btn.ghost{background:var(--soft);color:var(--b2)}
+.btn:disabled{opacity:.45;cursor:not-allowed}
+.grid{display:grid;gap:14px;grid-template-columns:repeat(auto-fit,minmax(200px,1fr))}
+.card{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:20px;box-shadow:var(--shadow)}
+.card h3{margin:0 0 6px}
+.stat{font-size:1.9rem;font-weight:800;color:var(--b2)}
+.muted{color:var(--muted);font-size:.92rem}
+h2{margin:26px 0 12px}
+label{display:block;font-weight:600;margin:14px 0 6px;font-size:.92rem}
+select,input[type=number]{width:100%;padding:10px 12px;border:1px solid var(--line);border-radius:10px;background:var(--card);color:var(--ink);font-size:1rem;font-family:inherit}
+.row{display:flex;gap:12px;flex-wrap:wrap}.row>*{flex:1;min-width:140px}
+.chk{display:flex;gap:8px;align-items:center;font-weight:500;margin-top:14px}
+.chk input{width:18px;height:18px}
+.tag{display:inline-block;background:var(--soft);color:var(--b2);border-radius:999px;padding:3px 11px;font-size:.78rem;font-weight:600;margin-right:6px}
+.bar{height:8px;background:var(--soft);border-radius:99px;overflow:hidden;margin:10px 0 16px}
+.bar>div{height:100%;background:linear-gradient(90deg,var(--b2),var(--b3));width:0;transition:width .25s}
+.qtext{font-size:1.08rem;margin:10px 0 16px;white-space:pre-wrap}
+.opt{display:flex;gap:12px;align-items:flex-start;width:100%;text-align:left;background:var(--card);color:var(--ink);border:1.5px solid var(--line);border-radius:12px;padding:12px 14px;margin:8px 0;cursor:pointer;font-size:1rem;font-family:inherit}
+.opt:hover:not(:disabled){border-color:var(--b3);background:var(--soft)}
+.opt b{min-width:24px;height:24px;border-radius:50%;background:var(--soft);color:var(--b2);display:inline-flex;align-items:center;justify-content:center;font-size:.82rem;flex:none}
+.opt.sel{border-color:var(--b2);background:var(--soft)}
+.opt.ok{border-color:var(--ok);background:var(--okbg)}
+.opt.ko{border-color:var(--ko);background:var(--kobg)}
+.opt:disabled{cursor:default}
+.expl{margin-top:14px;padding:14px 16px;border-radius:12px;background:var(--soft);border-left:4px solid var(--b2);white-space:pre-wrap}
+.expl.good{border-left-color:var(--ok)}.expl.bad{border-left-color:var(--ko)}
+.timer{font-variant-numeric:tabular-nums;font-weight:700;color:var(--b2)}
+.timer.low{color:var(--ko)}
+.top{display:flex;justify-content:space-between;align-items:center;gap:10px;flex-wrap:wrap}
+.score{font-size:3rem;font-weight:800;color:var(--b2);line-height:1}
+.sub{display:flex;justify-content:space-between;padding:8px 0;border-bottom:1px solid var(--line);font-size:.95rem}
+.hidden{display:none}
+.nav-q{display:flex;flex-wrap:wrap;gap:6px;margin:12px 0}
+.nav-q button{width:34px;height:34px;border-radius:8px;border:1px solid var(--line);background:var(--card);color:var(--ink);cursor:pointer;font-size:.82rem}
+.nav-q .done{background:var(--soft);border-color:var(--b3)}.nav-q .cur{outline:2px solid var(--b2)}
+code,pre{background:var(--soft);border-radius:8px;font-size:.85rem}
+pre{padding:12px;overflow:auto}
+  .drop{border:2px dashed var(--b3);border-radius:16px;padding:26px;text-align:center;background:var(--soft)}
+.drop.over{background:var(--card);border-color:var(--b2)}
+footer{padding:30px 0 40px;color:var(--muted);font-size:.85rem;text-align:center}
+.notice{background:var(--kobg);border:1px solid var(--ko);color:var(--ink);padding:12px 14px;border-radius:12px;margin:12px 0}
+</style>
+</head>
+<body>
+<header><div class="wrap"><nav>
+  <div class="logo" onclick="go('home')"><i></i>STHETO</div>
+  <div class="nav"><a onclick="go('home')">Accueil</a><a onclick="go('practice')">Entraînement</a><a onclick="go('exam')">Examen blanc</a><a onclick="go('bank')">Importer</a></div>
+</nav></div></header>
+
+<main class="wrap" id="app"></main>
+<footer class="wrap">STHETO · Outil d'entraînement. Vérifie toujours les protocoles auprès des sources officielles.</footer>
+
+<script>
+/* ============ État & utilitaires ============ */
+const LS = { custom:'stheto_custom', hist:'stheto_history', wrong:'stheto_wrong' };
+let BASE = [], CUSTOM = [], ALL = [], S = null, loadError = '';
+
+const $ = s => document.querySelector(s);
+const esc = t => String(t ?? '').replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+const letters = 'ABCDEFGHIJ';
+const read = (k, d) => { try { return JSON.parse(localStorage.getItem(k)) ?? d; } catch { return d; } };
+const write = (k, v) => { try { localStorage.setItem(k, JSON.stringify(v)); return true; } catch { return false; } };
+const shuffle = a => { a = a.slice(); for (let i=a.length-1;i>0;i--){ const j=Math.floor(Math.random()*(i+1)); [a[i],a[j]]=[a[j],a[i]]; } return a; };
+const uniq = a => [...new Set(a)].filter(Boolean).sort();
+const fmt = s => { s=Math.max(0,Math.round(s)); const h=Math.floor(s/3600),m=Math.floor(s%3600/60),x=s%60; return (h?h+':':'')+String(m).padStart(h?2:1,'0')+':'+String(x).padStart(2,'0'); };
+function hash(str){ let h=0; for(const c of str) h=(h*31+c.charCodeAt(0))|0; return 'q'+Math.abs(h).toString(36); }
+
+/* Normalise une question du JSON. Retourne null si invalide. */
+function norm(q){
+  if(!q || typeof q.question!=='string' || !Array.isArray(q.options) || q.options.length<2) return null;
+  let a = q.answer, idx = -1;
+  if(typeof a==='number') idx = a;
+  else if(typeof a==='string'){ const L=a.trim().toUpperCase(); idx = letters.indexOf(L); if(idx<0 && /^\d+$/.test(L)) idx=+L; }
+  if(idx<0 || idx>=q.options.length) return null;
+  return {
+    id: q.id || hash(q.question),
+    exam: q.exam || 'Général',
+    subject: q.subject || 'Divers',
+    question: q.question.trim(),
+    options: q.options.map(String),
+    answer: idx,
+    explanation: q.explanation || '',
+    difficulty: q.difficulty || ''
+  };
+}
+function rebuild(){
+  const map = new Map();
+  [...BASE, ...CUSTOM].forEach(q => { const n = norm(q); if(n) map.set(n.id, n); });
+  ALL = [...map.values()];
+}
+async function load(){
+  CUSTOM = read(LS.custom, []);
+  try{
+    const r = await fetch('questions.json', {cache:'no-store'});
+    if(!r.ok) throw new Error('HTTP '+r.status);
+    BASE = await r.json();
+  }catch(e){
+    BASE = [];
+    loadError = "Impossible de charger questions.json (ouvre le site via GitHub Pages ou un serveur local, ou utilise l'import ci-dessous).";
+  }
+  rebuild(); go('home');
+}
+
+/* ============ Navigation ============ */
+function go(v){
+  clearInterval(S?.tick);
+  if(v!=='quiz' && v!=='results') S = null;
+  window.scrollTo(0,0);
+  ({home:vHome, practice:()=>vSetup('practice'), exam:()=>vSetup('exam'), bank:vBank, quiz:vQuiz, results:vResults}[v])();
+}
+const view = html => { $('#app').innerHTML = html; };
+
+/* ============ Accueil ============ */
+function vHome(){
+  const h = read(LS.hist, []), wrong = read(LS.wrong, []);
+  const tq = h.reduce((a,x)=>a+x.total,0), tc = h.reduce((a,x)=>a+x.correct,0);
+  const avg = tq ? Math.round(100*tc/tq) : 0;
+  const recent = h.slice(-5).reverse().map(x=>`<div class="sub"><span>${esc(x.date)} · ${x.mode==='exam'?'Examen blanc':'Entraînement'}</span><b>${x.correct}/${x.total} (${Math.round(100*x.correct/x.total)}%)</b></div>`).join('') || '<p class="muted">Aucune session pour le moment.</p>';
+  view(`
+  <section class="hero">
+    <h1>Prépare ton USMLE et ton résidanat</h1>
+    <p>Questions type USMLE Step 1 &amp; 2 et concours de résidanat, avec explications détaillées, scores et examens blancs.</p>
+    <button class="btn light" onclick="go('practice')">Commencer l'entraînement</button>
+    <button class="btn ghost" style="margin-left:8px" onclick="go('exam')">Examen blanc</button>
+  </section>
+  ${loadError?`<div class="notice">${esc(loadError)}</div>`:''}
+  <div class="grid">
+    <div class="card"><div class="stat">${ALL.length}</div><div class="muted">questions disponibles</div></div>
+    <div class="card"><div class="stat">${h.length}</div><div class="muted">sessions réalisées</div></div>
+    <div class="card"><div class="stat">${avg}%</div><div class="muted">réussite moyenne</div></div>
+    <div class="card"><div class="stat">${wrong.length}</div><div class="muted">questions à revoir</div></div>
+  </div>
+  <h2>Dernières sessions</h2><div class="card">${recent}</div>`);
+}
+
+/* ============ Réglages (entraînement / examen) ============ */
+function vSetup(mode){
+  const exams = uniq(ALL.map(q=>q.exam)), subs = uniq(ALL.map(q=>q.subject));
+  const isExam = mode==='exam';
+  view(`
+  <h2>${isExam?'Examen blanc':'Entraînement'}</h2>
+  <p class="muted">${isExam?'Conditions réelles : minuteur, pas de correction avant la fin, navigation libre entre les questions.':"Correction et explication immédiates après chaque réponse."}</p>
+  <div class="card">
+    <label>Examen</label>
+    <select id="fExam"><option value="">Tous</option>${exams.map(e=>`<option>${esc(e)}</option>`).join('')}</select>
+    <label>Matière</label>
+    <select id="fSub"><option value="">Toutes</option>${subs.map(e=>`<option>${esc(e)}</option>`).join('')}</select>
+    <div class="row">
+      <div><label>Nombre de questions</label><input type="number" id="fN" min="1" value="10"></div>
+      ${isExam?`<div><label>Durée (minutes)</label><input type="number" id="fT" min="1" value="15"></div>`:''}
+    </div>
+    ${isExam?'':`<label class="chk"><input type="checkbox" id="fWrong"> Seulement mes questions ratées</label>`}
+    <p class="muted" id="avail"></p>
+    <button class="btn" id="go">Démarrer</button>
+  </div>`);
+  const upd = () => {
+    const n = pool().length;
+    $('#avail').textContent = n + ' question(s) correspondent à ces filtres.';
+    $('#go').disabled = n===0;
+  };
+  const pool = () => {
+    let p = ALL.filter(q => (!$('#fExam').value || q.exam===$('#fExam').value) && (!$('#fSub').value || q.subject===$('#fSub').value));
+    if(!isExam && $('#fWrong')?.checked){ const w = read(LS.wrong, []); p = p.filter(q=>w.includes(q.id)); }
+    return p;
+  };
+  ['fExam','fSub','fWrong'].forEach(id => $('#'+id)?.addEventListener('change', upd));
+  if(isExam) $('#fN').addEventListener('input', () => { $('#fT').value = Math.max(1, Math.round(($('#fN').value||1)*1.5)); });
+  $('#go').onclick = () => {
+    const list = shuffle(pool()).slice(0, Math.max(1, +$('#fN').value||10));
+    S = { mode, list, ans: Array(list.length).fill(null), i:0, locked: Array(list.length).fill(false), start: Date.now() };
+    if(isExam){ S.end = Date.now() + Math.max(1,+$('#fT').value||15)*60000; }
+    go('quiz');
+  };
+  upd();
+}
+
+/* ============ Quiz ============ */
+function vQuiz(){
+  const q = S.list[S.i], isExam = S.mode==='exam', done = S.locked[S.i];
+  const opts = q.options.map((o,k) => {
+    let cls = 'opt', dis = '';
+    if(!isExam && done){ dis='disabled'; if(k===q.answer) cls+=' ok'; else if(k===S.ans[S.i]) cls+=' ko'; }
+    else if(S.ans[S.i]===k) cls+=' sel';
+    return `<button class="${cls}" ${dis} onclick="pick(${k})"><b>${letters[k]}</b><span>${esc(o)}</span></button>`;
+  }).join('');
+  let expl = '';
+  if(!isExam && done){
+    const good = S.ans[S.i]===q.answer;
+    expl = `<div class="expl ${good?'good':'bad'}"><b>${good?'Bonne réponse !':'Réponse incorrecte.'} Bonne réponse : ${letters[q.answer]}.</b>\n\n${esc(q.explanation||'Pas d’explication fournie pour cette question.')}</div>`;
+  }
+  const pct = Math.round(100*(S.i+(done?1:0))/S.list.length);
+  const navq = isExam ? `<div class="nav-q">${S.list.map((_,k)=>`<button class="${S.ans[k]!==null?'done':''} ${k===S.i?'cur':''}" onclick="jump(${k})">${k+1}</button>`).join('')}</div>` : '';
+  const last = S.i===S.list.length-1;
+  view(`
+  <div class="top" style="margin-top:20px">
+    <div><span class="tag">${esc(q.exam)}</span><span class="tag">${esc(q.subject)}</span></div>
+    <div class="muted">Question ${S.i+1} / ${S.list.length}${isExam?` · <span class="timer" id="tm"></span>`:''}</div>
+  </div>
+  <div class="bar"><div style="width:${pct}%"></div></div>
+  <div class="card">
+    <div class="qtext">${esc(q.question)}</div>
+    ${opts}${expl}
+  </div>
+  ${navq}
+  <div class="top" style="margin-top:14px">
+    <div>${isExam?`<button class="btn ghost" ${S.i===0?'disabled':''} onclick="jump(S.i-1)">← Précédente</button>`:`<button class="btn ghost" onclick="if(confirm('Quitter la session ?'))go('home')">Quitter</button>`}</div>
+    <div>
+      ${isExam
+        ? (last?`<button class="btn" onclick="finish(true)">Terminer l'examen</button>`:`<button class="btn" onclick="jump(S.i+1)">Suivante →</button>`)
+        : (done?(last?`<button class="btn" onclick="finish(false)">Voir mes résultats</button>`:`<button class="btn" onclick="jump(S.i+1)">Suivante →</button>`):'')}
+    </div>
+  </div>`);
+  if(isExam){ clearInterval(S.tick); const t=()=>{ const left=(S.end-Date.now())/1000; const el=$('#tm'); if(el){el.textContent=fmt(left); el.classList.toggle('low',left<60);} if(left<=0){clearInterval(S.tick); finish(false,true);} }; t(); S.tick=setInterval(t,500); }
+}
+function pick(k){
+  if(S.mode==='exam'){ S.ans[S.i]=k; vQuiz(); return; }
+  if(S.locked[S.i]) return;
+  S.ans[S.i]=k; S.locked[S.i]=true; vQuiz();
+}
+function jump(k){ if(k<0||k>=S.list.length) return; S.i=k; vQuiz(); window.scrollTo(0,0); }
+function finish(confirmIt, auto){
+  if(confirmIt){ const un = S.ans.filter(a=>a===null).length; if(!confirm(un?`Il reste ${un} question(s) sans réponse. Terminer ?`:'Terminer l’examen ?')) return; }
+  clearInterval(S.tick);
+  const wrong = new Set(read(LS.wrong, [])), by = {}; let correct = 0;
+  S.list.forEach((q,k) => {
+    const ok = S.ans[k]===q.answer; if(ok) correct++;
+    (by[q.subject] ||= {c:0,t:0}).t++; if(ok) by[q.subject].c++;
+    if(ok) wrong.delete(q.id); else wrong.add(q.id);
+  });
+  write(LS.wrong, [...wrong]);
+  const h = read(LS.hist, []);
+  h.push({date:new Date().toLocaleString('fr-FR',{dateStyle:'short',timeStyle:'short'}), mode:S.mode, total:S.list.length, correct});
+  write(LS.hist, h.slice(-100));
+  S.done = {correct, by, secs:(Date.now()-S.start)/1000, auto};
+  go('results');
+}
+
+/* ============ Résultats ============ */
+function vResults(){
+  const d = S.done, n = S.list.length, pct = Math.round(100*d.correct/n);
+  const subs = Object.entries(d.by).map(([s,v])=>`<div class="sub"><span>${esc(s)}</span><b>${v.c}/${v.t} (${Math.round(100*v.c/v.t)}%)</b></div>`).join('');
+  const rev = S.list.map((q,k)=>{
+    const a = S.ans[k], ok = a===q.answer;
+    return `<div class="card" style="margin:12px 0">
+      <span class="tag">${ok?'✔ Correct':(a===null?'Sans réponse':'✘ Incorrect')}</span><span class="tag">${esc(q.subject)}</span>
+      <div class="qtext">${k+1}. ${esc(q.question)}</div>
+      ${q.options.map((o,j)=>`<div class="opt ${j===q.answer?'ok':(j===a?'ko':'')}" style="cursor:default"><b>${letters[j]}</b><span>${esc(o)}</span></div>`).join('')}
+      <div class="expl ${ok?'good':'bad'}"><b>Bonne réponse : ${letters[q.answer]}.</b>\n\n${esc(q.explanation||'Pas d’explication fournie.')}</div></div>`;
+  }).join('');
+  view(`
+  <h2>Résultats ${d.auto?'<span class="tag">Temps écoulé</span>':''}</h2>
+  <div class="card">
+    <div class="score">${pct}%</div>
+    <p class="muted">${d.correct} bonne(s) réponse(s) sur ${n} · durée ${fmt(d.secs)}</p>
+    <div class="bar"><div style="width:${pct}%"></div></div>
+    ${subs}
+    <p style="margin-top:16px"><button class="btn" onclick="go('${S.mode==='exam'?'exam':'practice'}')">Nouvelle session</button>
+    <button class="btn ghost" onclick="go('home')">Accueil</button></p>
+  </div>
+  <h2>Correction détaillée</h2>${rev}`);
+}
+
+/* ============ Banque de questions & import en bloc ============ */
+function vBank(){
+  const exams = uniq(ALL.map(q=>q.exam));
+  const counts = exams.map(e=>`<div class="sub"><span>${esc(e)}</span><b>${ALL.filter(q=>q.exam===e).length}</b></div>`).join('') || '<p class="muted">Aucune question.</p>';
+  view(`
+  <h2>Importer des questions</h2>
+  <div class="card">
+    <div id="drop" class="drop">
+      <p><b>Glisse ici plusieurs fichiers .json en même temps</b></p>
+      <p class="muted">ou</p>
+      <button class="btn" id="pick">Choisir des fichiers</button>
+      <input type="file" id="file" accept=".json,application/json" multiple hidden>
+    </div>
+    <label>Ou colle du JSON ici</label>
+    <textarea id="paste" rows="5" style="width:100%;padding:10px;border-radius:10px;border:1px solid var(--line);background:var(--card);color:var(--ink);font-family:monospace"></textarea>
+    <p><button class="btn ghost" id="imp">Importer le texte collé</button></p>
+    <div id="report"></div>
+    <p class="muted">Les questions importées sont enregistrées dans <b>ce navigateur</b> (elles restent après fermeture). Pour les rendre disponibles à <b>tous les visiteurs</b>, télécharge le fichier fusionné ci-dessous et remplace <code>questions.json</code> sur GitHub.</p>
+  </div>
+
+  <h2>Ma banque</h2>
+  <div class="card"><h3>${ALL.length} question(s)</h3>${counts}
+    <p class="muted">Dont ${CUSTOM.length} importée(s) sur cet appareil.</p>
+    <p><button class="btn" id="merge">Télécharger questions.json fusionné</button>
+       <button class="btn ghost" id="exp">Exporter seulement mes imports</button>
+       <button class="btn ghost" id="clr">Effacer mes imports</button></p>
+  </div>
+
+  <h2>Format d'un fichier</h2>
+  <div class="card"><pre>[
+  {
+    "id": "usmle1-0001",
+    "exam": "USMLE Step 1",
+    "subject": "Pharmacologie",
+    "question": "Texte de la question…",
+    "options": ["Choix A", "Choix B", "Choix C", "Choix D"],
+    "answer": "B",
+    "explanation": "Pourquoi B est correct et pourquoi les autres sont faux."
+  }
+]</pre>
+  <p class="muted"><code>answer</code> : une lettre (« A », « B »…) ou un index (0 = A). <code>id</code> facultatif mais conseillé : même id = la question est remplacée, pas dupliquée. Un fichier peut aussi être de la forme <code>{"questions":[…]}</code>.</p></div>`);
+
+  const report = html => { $('#report').innerHTML = html; };
+  const extract = data => Array.isArray(data) ? data : (Array.isArray(data?.questions) ? data.questions : (data && typeof data==='object' ? [data] : []));
+
+  async function importMany(items){            // items = [{name, text}]
+    const map = new Map(CUSTOM.map(q=>[norm(q)?.id, q]));
+    let added=0, replaced=0, bad=0; const lines=[];
+    for(const {name,text} of items){
+      try{
+        const arr = extract(JSON.parse(text));
+        let a=0,r=0,b=0;
+        arr.forEach(q => { const n=norm(q); if(!n){b++;return;} (map.has(n.id)?r++:a++); map.set(n.id,q); });
+        added+=a; replaced+=r; bad+=b;
+        lines.push(`<div class="sub"><span>${esc(name)}</span><b style="color:var(${b&&!a&&!r?'--ko':'--ok'})">+${a}${r?` · ${r} remplacée(s)`:''}${b?` · ${b} ignorée(s)`:''}</b></div>`);
+      }catch(e){
+        lines.push(`<div class="sub"><span>${esc(name)}</span><b style="color:var(--ko)">JSON invalide : ${esc(e.message)}</b></div>`);
+      }
+    }
+    const next = [...map.values()];
+    const ok = write(LS.custom, next);
+    if(ok){ CUSTOM = next; rebuild(); }
+    report(`<div class="notice" style="background:var(--okbg);border-color:var(--ok)"><b>${added}</b> question(s) ajoutée(s), <b>${replaced}</b> remplacée(s), <b>${bad}</b> ignorée(s). Total : <b>${ALL.length}</b>.</div>`
+      + (ok ? '' : `<div class="notice">Stockage du navigateur plein ou bloqué : les imports n'ont pas pu être enregistrés. Ajoute-les plutôt dans <code>questions.json</code> sur GitHub.</div>`)
+      + lines.join(''));
+    if(ok) setTimeout(()=>{ const h=$('#app h3'); if(h) h.textContent = ALL.length+' question(s)'; },0);
+  }
+  const readFiles = async files => {
+    const list = [...files].filter(f=>/\.json$/i.test(f.name) || f.type==='application/json');
+    if(!list.length){ report('<div class="notice">Aucun fichier .json détecté.</div>'); return; }
+    importMany(await Promise.all(list.map(async f=>({name:f.name, text:await f.text()}))));
+  };
+
+  $('#pick').onclick = () => $('#file').click();
+  $('#file').onchange = e => { readFiles(e.target.files); e.target.value=''; };
+  const drop = $('#drop');
+  ['dragenter','dragover'].forEach(ev=>drop.addEventListener(ev,e=>{e.preventDefault();drop.classList.add('over');}));
+  ['dragleave','drop'].forEach(ev=>drop.addEventListener(ev,e=>{e.preventDefault();drop.classList.remove('over');}));
+  drop.addEventListener('drop', e => readFiles(e.dataTransfer.files));
+  $('#imp').onclick = () => { const t=$('#paste').value.trim(); if(t) importMany([{name:'Texte collé', text:t}]); };
+
+  const download = (obj, name) => { const b=new Blob([JSON.stringify(obj,null,2)],{type:'application/json'}); const a=document.createElement('a'); a.href=URL.createObjectURL(b); a.download=name; a.click(); setTimeout(()=>URL.revokeObjectURL(a.href),1000); };
+  $('#merge').onclick = () => download(ALL.map(q=>({id:q.id,exam:q.exam,subject:q.subject,question:q.question,options:q.options,answer:letters[q.answer],explanation:q.explanation})), 'questions.json');
+  $('#exp').onclick = () => download(CUSTOM, 'mes-questions.json');
+  $('#clr').onclick = () => { if(confirm('Effacer les questions importées sur cet appareil ?')){ CUSTOM=[]; write(LS.custom,[]); rebuild(); vBank(); } };
+}
+
+
+load();
+</script>
+</body>
+</html>
